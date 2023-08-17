@@ -1,8 +1,9 @@
 import { Router } from 'express';
-
+import fs from 'fs';
 const router = Router();
 
-let products = [];
+const products = [];
+
 
 router.get('/', (req, res) => {
     const limit = +req.query.limit;
@@ -24,10 +25,21 @@ router.get('/:pid', (req, res) => {
 let valor = 0;
 router.post('/', (req, res) => {
     valor++;
-    const product = req.body;
-    Object.assign(product, {"id" : valor});
-    products.push(product);
-    res.send({status: 'success', payload})
+    let product = req.body;
+    product["id"] = valor;
+    products.push(product)
+    if(fs.existsSync('products.json')){
+        const jsonData = fs.readFileSync('products.json', 'utf-8');
+        const existingData = JSON.parse(jsonData);
+        existingData.push(product);
+        const updatedJsonData = JSON.stringify(existingData, null, 2);
+        fs.writeFileSync('products.json', updatedJsonData);
+        res.send({status: 'success'});
+    }else{
+        const stringProduct = JSON.stringify(products)
+        fs.writeFileSync('products.json', stringProduct);
+        res.send({status: 'success'});
+    }
 });
 
 router.put('/:pid', (req, res) => {
