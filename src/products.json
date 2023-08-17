@@ -5,7 +5,7 @@
     "code": "code",
     "price": 1111,
     "status": true,
-    "stock": 11,
+    "stock": 1,
     "category": "category1",
     "thumbnails": [
       "https://imagen1",
@@ -20,7 +20,7 @@
     "code": "code",
     "price": 2222,
     "status": true,
-    "stock": 22,
+    "stock": 2,
     "category": "category2",
     "thumbnails": [
       "https://imagen1",
@@ -35,7 +35,7 @@
     "code": "code",
     "price": 3333,
     "status": true,
-    "stock": 33,
+    "stock": 3,
     "category": "category3",
     "thumbnails": [
       "https://imagen1",
@@ -58,5 +58,20 @@
       "https://imagen3"
     ],
     "id": 4
+  },
+  {
+    "title": "title5",
+    "description": "description5",
+    "code": "code",
+    "price": 5555,
+    "status": true,
+    "stock": 5,
+    "category": "category5",
+    "thumbnails": [
+      "https://imagen1",
+      "https://imagen2",
+      "https://imagen3"
+    ],
+    "id": 5
   }
 ]
